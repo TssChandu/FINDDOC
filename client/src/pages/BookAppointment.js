@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { showLoading, hideLoading } from '../redux/alertSlice';
+import dayjs from 'dayjs';
 import moment from 'moment';
 import toast from 'react-hot-toast'
 import axios from 'axios';
@@ -108,6 +109,45 @@ const BookAppointment = () => {
       getDoctorData();
    }, []);
 
+   const disabledDate = (current) => {
+      // Can not select days before today and today
+      return current && current < dayjs().endOf('day');
+   };
+
+   const range = (start, end) => {
+      const result = [];
+      for (let i = start; i < end; i++) {
+         result.push(i);
+      }
+      return result;
+   };
+
+   const disabledDateTime = () => {
+      const [startTimingHour, startTimingMins] = doctor.timings[0].split(":")
+      const [endTimingHour, endTimingMins] = doctor.timings[1].split(":")
+      const hourArray = range(0, parseInt(startTimingHour))
+      for (let t = parseInt(endTimingHour); t < 24; t++) {
+         hourArray.push(t)
+      }
+      return {
+         disabledHours: () => hourArray,
+         disabledMinutes: (selectedHour) => {
+            let minutes = [];
+            console.log(selectedHour)
+            if (selectedHour === parseInt(startTimingHour)) {
+               for (let i = 0; i < parseInt(startTimingMins); i += 1) minutes.push(i);
+            } else if (selectedHour === parseInt(endTimingHour) - 1) {
+               for (let i = parseInt(endTimingMins) + 1; i < 60; i += 1) minutes.push(i);
+            } else if (selectedHour === -1) {
+               minutes = range(0, 60)
+            }
+
+            return minutes;
+         }
+      }
+   };
+
+
    return (
       <Layout>
          {doctor && (
@@ -128,9 +168,9 @@ const BookAppointment = () => {
                      <p className="doctor-card"><b>Location: </b>{doctor.address}</p>
                      <p className="doctor-card"><b>Fee Per Visit: </b>{doctor.feePerConsultation}</p>
                      <div className='d-flex flex-column'>
-                        <DatePicker format='DD-MM-YYYY' className='mt-3'
+                        <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='mt-3'
                            onChange={(value) => { setDate(moment(value).format("DD-MM-YYYY")); setIsAvailable(false) }} />
-                        <TimePicker format='HH:mm' className='mt-3'
+                        <TimePicker format='HH:mm' className='mt-3' disabledTime={disabledDateTime}
                            onChange={(value) => {
                               setTime(
                                  moment(value).format("HH-mm")
