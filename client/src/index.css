@@ -5,12 +5,6 @@
 }
 
 /* antd override */
-input {
-    border-radius: 2px !important;
-    border: 1px solid rgba(128, 128, 128, 0.473) !important;
-    height: 30px !important;
-}
-
 input:focus,
 .ant-picker {
     outline: none !important;
@@ -28,8 +22,19 @@ label {
     margin: 10px 0px !important;
 }
 
-.ant-picker-input input {
-    border: none !important;
+.ant-picker-input input,
+input {
+    margin: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.473);
+    padding: 5px;
+    outline: none !important;
+}
+
+.password-input {
+    border-radius: 2px !important;
+    border: 1px solid rgba(128, 128, 128, 0.473) !important;
+    height: 35px !important;
+    outline: none !important;
 }
 
 .ant-picker {
@@ -70,6 +75,14 @@ label {
 .card-title {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.534);
+    font-weight: bold;
+}
+
+.otp-card-title {
+    width: max-content !important;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -124,6 +137,15 @@ label {
     font-size: 16px !important;
 }
 
+.forgot-btn {
+    color: rgb(50, 107, 230);
+    border: none;
+    margin-right: 0px;
+    padding-right: 0px;
+    font-weight: 500;
+    background: none;
+}
+
 .anchor:hover {
     text-decoration: underline !important;
     color: rgb(17, 18, 90) !important;
@@ -152,4 +174,15 @@ label {
     padding: 7px 15px;
     margin-left: -40px;
     border-bottom-left-radius: 10px;
+}
+
+.num-input {
+    text-align: center !important;
+    width: 45px;
+    height: 50px !important;
+    border-radius: 10px !important;
+}
+
+.ant-input-password {
+    outline: none !important;
 }
