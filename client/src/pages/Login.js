@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, Form } from 'antd'
+import { Button, Form, Input } from 'antd'
 import toast from 'react-hot-toast'
-import Input from 'antd/lib/input/Input'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../redux/alertSlice'
@@ -78,7 +77,7 @@ function Login() {
               message: 'Please input your password!',
             },
           ]}>
-            <Input placeholder='Password' type='password' className='password-input' />
+            <Input.Password placeholder='Password' type='password' className='password-input' />
           </Form.Item>
           <Button className='primary-button auth' htmlType='submit'>LOGIN</Button>
           <div className='d-flex justify-content-end mr-0'>

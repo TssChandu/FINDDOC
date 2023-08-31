@@ -133,7 +133,6 @@ const BookAppointment = () => {
          disabledHours: () => hourArray,
          disabledMinutes: (selectedHour) => {
             let minutes = [];
-            console.log(selectedHour)
             if (selectedHour === parseInt(startTimingHour)) {
                for (let i = 0; i < parseInt(startTimingMins); i += 1) minutes.push(i);
             } else if (selectedHour === parseInt(endTimingHour) - 1) {
@@ -168,7 +167,7 @@ const BookAppointment = () => {
                      <p className="doctor-card"><b>Location: </b>{doctor.address}</p>
                      <p className="doctor-card"><b>Fee Per Visit: </b>{doctor.feePerConsultation}</p>
                      <div className='d-flex flex-column'>
-                        <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='mt-3'
+                        <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='mt-3 date-time-border'
                            onChange={(value) => { setDate(moment(value).format("DD-MM-YYYY")); setIsAvailable(false) }} />
                         <TimePicker format='HH:mm' className='mt-3' disabledTime={disabledDateTime}
                            onChange={(value) => {

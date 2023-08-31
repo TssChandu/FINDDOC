@@ -98,7 +98,7 @@ const OTPInput = () => {
             <div className="d-flex justify-content-center">
                {OTPinput.map((_, index) => {
                   return (
-                     <React.Fragment key={index}>
+                     <div key={index} className="code-input-box">
                         <input
                            type="number" ref={index === activeOtpIndex ? inputRef : null}
                            className="num-input password-inputm-2 d-flex justify-content-center" min={0} max={9}
@@ -106,7 +106,7 @@ const OTPInput = () => {
                            onKeyDown={(e) => handleOnKeyDown(e, index)}
                            value={OTPinput[index]}
                         />
-                     </React.Fragment>
+                     </div>
                   );
                })}
             </div>

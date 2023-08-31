@@ -38,7 +38,7 @@ function Register() {
               message: 'Please input your username!',
             },
           ]}>
-            <Input placeholder='Name' />
+            <Input placeholder='Name' className='password-input' />
           </Form.Item>
           <Form.Item label="Email" name="email" rules={[
             {
@@ -46,7 +46,7 @@ function Register() {
               message: 'Please input your email!',
             },
           ]}>
-            <Input placeholder='Email' />
+            <Input placeholder='Email' className='password-input' />
           </Form.Item>
           <Form.Item label="Password" name="password" rules={[
             {
@@ -54,7 +54,7 @@ function Register() {
               message: 'Please input your password!',
             },
           ]}>
-            <Input placeholder='Password' type='password' />
+            <Input placeholder='Password' type='password' className='password-input' />
           </Form.Item>
           <Button className='primary-button auth' htmlType='submit'>REGISTER</Button>
           <Link to='/login' className='anchor'>CLICK HERE TO LOGIN</Link>

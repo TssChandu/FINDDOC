@@ -24,10 +24,19 @@ label {
 
 .ant-picker-input input,
 input {
-    margin: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.473);
+    border: none !important;
     padding: 5px;
     outline: none !important;
+}
+
+.code-input-box {
+    border: 1px solid rgba(128, 128, 128, 0.473) !important;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.code-input-box:active {
+    border: none;
 }
 
 .password-input {
