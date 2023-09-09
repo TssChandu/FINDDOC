@@ -10,12 +10,16 @@
 }
 
 .sidebar {
-    background-color: rgb(17, 72, 109);
+    background-image: linear-gradient(to left, rgb(110, 157, 189), rgb(17, 72, 109));
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
     height: 100%;
+}
+
+.nav-anchor {
+    color: rgb(229, 255, 0);
 }
 
 .collapsed-sidebar {
@@ -33,7 +37,7 @@
 }
 
 .header {
-    background-color: white;
+    background-image: linear-gradient(to right, rgb(110, 157, 189), rgb(17, 72, 109));
     border-radius: 8px;
     box-shadow: 0 0 2px gray;
     margin-bottom: 20px;
@@ -51,7 +55,9 @@
     height: 80vh;
     width: 100%;
     padding: 15px;
-    overflow: scroll !important;
+    overflow-x: scroll !important;
+    background-image: linear-gradient(to right, rgb(110, 157, 189), rgb(17, 72, 109));
+    scrollbar-width: 0px;
 }
 
 .menu {
@@ -66,7 +72,7 @@
 }
 
 .menu-item {
-    margin-top: 30px;
+    margin-top: 20px;
     padding-top: 5px;
     display: flex;
     justify-content: flex-start;
@@ -78,6 +84,14 @@
     cursor: pointer;
 }
 
+.ant-pagination-item-link {
+    background: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
 .menu-item a {
     color: rgba(255, 255, 255, 0.815);
     text-decoration: none;
@@ -86,10 +100,15 @@
 
 .logo {
     color: #fff;
+    transition: transform 1s;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
 }
 
 .menu-item p {
-    margin: 0px;
+    margin: 5px 0px 5px 15px;
     color: rgba(255, 255, 255, 0.815);
     text-decoration: none;
     font-size: 18px;
@@ -101,7 +120,6 @@
     color: rgba(255, 255, 255, 0.815);
     text-decoration: none;
     font-size: 18px;
-    margin: 0 15px;
 }
 
 .active-menu-item {
@@ -116,7 +134,7 @@
 
 .hamburger-icon {
     font-size: 30px;
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     padding: 0 10px;
     cursor: pointer;
 }

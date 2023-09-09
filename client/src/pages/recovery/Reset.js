@@ -52,7 +52,7 @@ const Reset = () => {
       <div className='authentication'>
          <div className='authentication-form card p-3'>
             <div className="d-flex justify-content-center">
-               <h1 className='otp-card-title'>Change Password</h1>
+               <h1 className='otp-card-title' style={{ color: "#fff" }}>Change Password</h1>
             </div>
             <Form layout='vertical' onFinish={onFinish}>
                <Form.Item label="New Password" name="newPassword" rules={[
@@ -61,7 +61,9 @@ const Reset = () => {
                      message: 'Required*',
                   },
                ]}>
-                  <Input.Password placeholder='***********' className='password-input' />
+                  <div className='auth-input'>
+                     <Input.Password placeholder='***********' className='password-input auth-input' />
+                  </div>
                </Form.Item>
                <Form.Item label="Confirm Password" name="password" rules={[
                   {
@@ -69,7 +71,9 @@ const Reset = () => {
                      message: 'Required*',
                   },
                ]}>
-                  <Input.Password placeholder='***********' type='password' className='password-input' />
+                  <div className='auth-input'>
+                     <Input.Password placeholder='***********' type='password' className='password-input auth-input' />
+                  </div>
                </Form.Item>
                <Checkbox onChange={onChangeCheckbox}>I accept the{" "}
                   <button
@@ -78,7 +82,9 @@ const Reset = () => {
                   >
                      Terms and Conditions
                   </button></Checkbox>
-               <Button className='primary-button auth' htmlType='submit'>RESET PASSWORD</Button>
+               <Button className='primary-button auth' htmlType='submit'>RESET PASSWORD
+                  <div className='wave'></div>
+               </Button>
             </Form>
          </div>
       </div>

@@ -18,12 +18,13 @@ function Login() {
       if (email) {
         const OTP = Math.floor(Math.random() * 900000 + 100000);
         setOTP(OTP);
-
+        dispatch(showLoading())
         const response = await axios.post("api/user/send_recovery_email", {
           OTP,
           recipient_email: email,
         })
         // console.log(response)
+        dispatch(hideLoading());
 
         if (response.data.success) {
           toast.success(response.data.message)
@@ -61,27 +62,41 @@ function Login() {
   return (
     <div className='authentication'>
       <div className='authentication-form card p-3'>
-        <h1 className='card-title'>Welcome Back</h1>
+        <ul>
+          <li>F</li>
+          <li>I</li>
+          <li>N</li>
+          <li>D </li>
+          <li>D</li>
+          <li>O</li>
+          <li>C</li>
+        </ul>
         <Form layout='vertical' onFinish={onFinish}>
-          <Form.Item label="Email" name="email" rules={[
+          <Form.Item label="Email" className='label' name="email" rules={[
             {
               required: true,
               message: 'Please input your email!',
             },
           ]}>
-            <Input placeholder='Email' className='password-input' onChange={(e) => setEmail(e.target.value)} />
+            <div className='auth-input'>
+              <Input placeholder='Email' className='password-input' onChange={(e) => setEmail(e.target.value)} />
+            </div>
           </Form.Item>
-          <Form.Item label="Password" name="password" rules={[
+          <Form.Item label="Password" className='label' name="password" rules={[
             {
               required: true,
               message: 'Please input your password!',
             },
           ]}>
-            <Input.Password placeholder='Password' type='password' className='password-input' />
+            <Input.Password placeholder='Password' type='password' className='password-input auth-input' />
           </Form.Item>
-          <Button className='primary-button auth' htmlType='submit'>LOGIN</Button>
+          <Button className='primary-button auth' htmlType='submit'>LOGIN
+            <div className='wave'></div>
+          </Button>
           <div className='d-flex justify-content-end mr-0'>
-            <button onClick={() => nagigateToOtp()} className="forgot-btn" type="button">
+            <button onClick={() => {
+              nagigateToOtp()
+            }} className="forgot-btn" type="button">
               Forgot password?
             </button>
           </div>

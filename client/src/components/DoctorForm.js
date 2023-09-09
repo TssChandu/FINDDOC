@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Form, Input, Col, Row, TimePicker } from 'antd';
+import '../index.css'
 import moment from 'moment';
 
 const DoctorForm = (props) => {
@@ -18,27 +19,37 @@ const DoctorForm = (props) => {
          <Row gutter={20}>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="First Name" name="firstName" rules={[{ required: true },]}>
-                  <Input placeholder="First Name" />
+                  <div className='auth-input'>
+                     <Input placeholder="First Name" className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Last Name" name="lastName" rules={[{ required: true },]}>
-                  <Input placeholder="Last Name" />
+                  <div className='auth-input'>
+                     <Input placeholder="Last Name" className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Phone Number" name="phoneNumber" rules={[{ required: true },]}>
-                  <Input placeholder="Phone Number" />
+                  <div className='auth-input'>
+                     <Input placeholder="Phone Number" type='number' className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Address" name="address" rules={[{ required: true },]}>
-                  <Input placeholder="Address" />
+                  <div className='auth-input'>
+                     <Input placeholder="Address" className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
-               <Form.Item label="Website" name="website" rules={[{ required: false },]}>
-                  <Input placeholder="Website" />
+               <Form.Item label="Website" name="website" >
+                  <div className='auth-input'>
+                     <Input placeholder="Website" className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
          </Row>
@@ -47,17 +58,23 @@ const DoctorForm = (props) => {
          <Row gutter={20}>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Specialization" name="specialization" rules={[{ required: true },]}>
-                  <Input placeholder="Specialization" />
+                  <div className='auth-input'>
+                     <Input placeholder="Specialization" className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Experience" name="experience" rules={[{ required: true },]}>
-                  <Input placeholder="Experience" type='number' />
+                  <div className='auth-input'>
+                     <Input placeholder="Experience" type='number' className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
                <Form.Item label="Fee Per Consultation" name="feePerConsultation" rules={[{ required: true },]}>
-                  <Input placeholder="Fee Per Consultation" type='number' />
+                  <div className='auth-input'>
+                     <Input placeholder="Fee Per Consultation" type='number' className='password-input' />
+                  </div>
                </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}>
@@ -67,7 +84,9 @@ const DoctorForm = (props) => {
             </Col>
          </Row>
          <div className="d-flex justify-content-end">
-            <Button className='primary-button' htmlType="submit">Submit</Button>
+            <Button className='primary-button' htmlType="submit">Submit
+               <div className='wave'></div>
+            </Button>
          </div>
       </Form>
    )

@@ -65,7 +65,7 @@ const DoctorsList = () => {
       {
          title: "Created At",
          dataIndex: 'createdAt',
-         render: (record, text) => moment(record.createdAt).format("DD-MM-YYYY")
+         render: (record, text) => moment(record).format("DD-MM-YYYY")
       },
       {
          title: "Website",
@@ -84,11 +84,15 @@ const DoctorsList = () => {
          dataIndex: "actions",
          render: (text, record) => (
             <div className='d-flex'>
-               {record.status === "pending" && <h1 className="anchor"
+               {record.status === "pending" && <h1 className="status"
                   onClick={() => changeDoctorStatus(record, "approved")}>
                   Approve
                </h1>}
-               {record.status === "approved" && <h1 className="anchor"
+               {record.status === "pending" && <h1 className="status"
+                  onClick={() => changeDoctorStatus(record, "rejected")}>
+                  Reject
+               </h1>}
+               {record.status === "approved" && <h1 className="status"
                   onClick={() => changeDoctorStatus(record, "blocked")}
                >Block</h1>}
             </div>

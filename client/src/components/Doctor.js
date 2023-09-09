@@ -5,7 +5,7 @@ const Doctor = ({ doctor }) => {
    const navigate = useNavigate();
    return (
       <div className='card p-2' onClick={() => navigate(`/book-appointment/${doctor._id}`)}>
-         <h1 className="card-title">{doctor.firstName} {doctor.lastName}</h1>
+         <h1 className="card-title card-heading">{doctor.firstName} {doctor.lastName}</h1>
          <hr />
          <p className="doctor-card"><b>Phone Number: </b>{doctor.phoneNumber}</p>
          <p className="doctor-card"><b>Specialization: </b>{doctor.specialization}</p>

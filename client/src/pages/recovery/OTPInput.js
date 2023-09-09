@@ -92,9 +92,9 @@ const OTPInput = () => {
       <div className='authentication'>
          <div className='authentication-form card p-3 d-flex flex-column align-items-center'>
             <div className="d-flex justify-content-center">
-               <h1 className='otp-card-title'>Email Verification</h1>
+               <h1 className='otp-card-title' style={{ color: "#fff" }}>Email Verification</h1>
             </div>
-            <p className="normal-text">We have send a code to your email</p>
+            <p className="normal-text" style={{ color: "#fff" }}>We have send a code to your email</p>
             <div className="d-flex justify-content-center">
                {OTPinput.map((_, index) => {
                   return (
@@ -113,14 +113,16 @@ const OTPInput = () => {
             <button onClick={() => verfiyOTP()}
                className="primary-button auth">
                Verify Account
+               <div className='wave'></div>
             </button>
             <div className="d-flex justify-content-center">
-               <p className="m-0">Didn't recieve code?</p>{" "}
+               <p className="m-0" style={{ color: "#fff" }}>Didn't recieve code?</p>
                <button type="button"
                   className="forgot-btn"
                   style={{
-                     color: disable ? "gray" : "blue",
+                     color: disable ? "gray" : "yellow",
                      cursor: disable ? "none" : "pointer",
+                     marginLeft: "10px",
                      textDecorationLine: disable ? "none" : "underline",
                   }}
                   onClick={() => resendOTP()}

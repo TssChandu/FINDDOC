@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaUserMd } from "react-icons/fa";
 import { Badge } from 'antd'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import logo from '../../assets/doctor-appointment-logo.png'
 import './layout.css'
 import { useSelector } from 'react-redux';
 
@@ -88,8 +89,11 @@ const Layout = ({ children }) => {
          <div className='d-flex layout'>
             <div className={`${collapsed ? "collapsed-sidebar" : 'sidebar'}`} >
                <div className="sidebar-header">
-                  <h1 className='logo m-1 mb-0'>FD</h1>
-                  <p className='normal-text m-1 mt-0' style={{ color: "white" }}>{userType}</p>
+                  {/* <h1 className='logo m-1 mb-0'>FD</h1> */}
+                  <Link to="/">
+                     <img src={logo} alt="logo" className="logo" style={{ width: "80px" }} />
+                  </Link>
+                  <p className='normal-text mt-3' style={{ color: "rgb(229, 255, 0)", marginLeft: "10px" }}>{userType}</p>
                </div>
                <div className="menu">
                   {menuToBeRendered.map(item => {
@@ -121,7 +125,7 @@ const Layout = ({ children }) => {
                      }}>
                         <i className="ri-notification-3-line hamburger-icon"></i>
                      </Badge>
-                     <Link className="anchor mx-3" to="/profile">{user?.name}</Link>
+                     <Link className="nav-anchor mx-3" to="/profile">{user?.name}</Link>
                   </div>
                </div>
                <div className="body">

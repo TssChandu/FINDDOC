@@ -158,14 +158,14 @@ const BookAppointment = () => {
                      <img src="https://cdn-icons-png.flaticon.com/512/2534/2534679.png" alt="booknow" width='100%' height="300" />
                   </Col>
                   <Col span={8} sm={24} xs={24} lg={8}>
-                     <h1 className="normal-text"><b>Timings: </b>
+                     <h1 className="normal-text" style={{ color: "#fff" }}><b>Timings: </b>
                         {doctor.timings[0]} - {doctor.timings[1]}
                      </h1>
-                     <p className="doctor-card"><b>Phone Number: </b>{doctor.phoneNumber}</p>
-                     <p className="doctor-card"><b>Specialization: </b>{doctor.specialization}</p>
-                     <p className="doctor-card"><b>Experience: </b>{doctor.experience}</p>
-                     <p className="doctor-card"><b>Location: </b>{doctor.address}</p>
-                     <p className="doctor-card"><b>Fee Per Visit: </b>{doctor.feePerConsultation}</p>
+                     <p className="doctor-card-text"><b>Phone Number: </b>{doctor.phoneNumber}</p>
+                     <p className="doctor-card-text"><b>Specialization: </b>{doctor.specialization}</p>
+                     <p className="doctor-card-text"><b>Experience: </b>{doctor.experience}</p>
+                     <p className="doctor-card-text"><b>Location: </b>{doctor.address}</p>
+                     <p className="doctor-card-text"><b>Fee Per Visit: </b>{doctor.feePerConsultation}</p>
                      <div className='d-flex flex-column'>
                         <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='mt-3 date-time-border'
                            onChange={(value) => { setDate(moment(value).format("DD-MM-YYYY")); setIsAvailable(false) }} />

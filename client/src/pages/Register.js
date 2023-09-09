@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, Form } from 'antd'
-import Input from 'antd/lib/input/Input'
+import { Button, Form, Input } from 'antd'
 import axios from "axios";
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux';
@@ -30,15 +29,24 @@ function Register() {
   return (
     <div className='authentication'>
       <div className='authentication-form card p-3'>
-        <h1 className='card-title'>Nice to Meet U</h1>
+        <ul>
+          <li>F</li>
+          <li>I</li>
+          <li>N</li>
+          <li>D</li>
+          <li>D</li>
+          <li>O</li>
+          <li>C</li>
+        </ul>
         <Form layout='vertical' onFinish={onFinish}>
           <Form.Item label="Name" name="name" rules={[
             {
               required: true,
               message: 'Please input your username!',
             },
-          ]}>
-            <Input placeholder='Name' className='password-input' />
+          ]}><div className='auth-input'>
+              <Input placeholder='Name' className='password-input' />
+            </div>
           </Form.Item>
           <Form.Item label="Email" name="email" rules={[
             {
@@ -46,7 +54,9 @@ function Register() {
               message: 'Please input your email!',
             },
           ]}>
-            <Input placeholder='Email' className='password-input' />
+            <div className='auth-input'>
+              <Input placeholder='Email' className='password-input' />
+            </div>
           </Form.Item>
           <Form.Item label="Password" name="password" rules={[
             {
@@ -54,9 +64,11 @@ function Register() {
               message: 'Please input your password!',
             },
           ]}>
-            <Input placeholder='Password' type='password' className='password-input' />
+            <Input.Password placeholder='Password' type='password' className='password-input auth-input' />
           </Form.Item>
-          <Button className='primary-button auth' htmlType='submit'>REGISTER</Button>
+          <Button className='primary-button auth' htmlType='submit'>REGISTER
+            <div className='wave'></div>
+          </Button>
           <Link to='/login' className='anchor'>CLICK HERE TO LOGIN</Link>
         </Form>
       </div>
