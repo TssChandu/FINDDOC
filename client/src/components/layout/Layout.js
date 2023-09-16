@@ -89,7 +89,6 @@ const Layout = ({ children }) => {
          <div className='d-flex layout'>
             <div className={`${collapsed ? "collapsed-sidebar" : 'sidebar'}`} >
                <div className="sidebar-header">
-                  {/* <h1 className='logo m-1 mb-0'>FD</h1> */}
                   <Link to="/">
                      <img src={logo} alt="logo" className="logo" style={{ width: "80px" }} />
                   </Link>

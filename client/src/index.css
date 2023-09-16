@@ -156,29 +156,29 @@ input {
 }
 
 .wave {
-    position: absolute !important;
-    width: 100% !important;
-    height: 100% !important;
-    left: 0 !important;
-    top: calc(100% + 22px) !important;
-    background-color: #00aeff !important;
-    transition: all 1s !important;
-    z-index: -1 !important;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: calc(100% + 22px);
+    background-color: #00aeff;
+    transition: all 1s;
+    z-index: -1;
 }
 
 .primary-button:hover .wave {
-    top: 0 !important;
+    top: 0;
 }
 
 .wave:before {
-    content: "" !important;
-    position: absolute !important;
-    top: -22px !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 22px !important;
-    background: url('./assets/wave.png') !important;
-    animation: wavy 0.5s linear infinite !important;
+    content: "";
+    position: absolute;
+    top: -22px;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    background: url('./assets/wave.png');
+    animation: wavy 0.5s linear infinite;
 }
 
 @keyframes wavy {
@@ -187,7 +187,7 @@ input {
     }
 
     100% {
-        background-position-x: 120px;
+        background-position-x: 118px;
     }
 }
 
@@ -222,14 +222,14 @@ input {
 }
 
 /* authentication pages */
-ul {
+.title {
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
 }
 
-ul li {
+.title li {
     list-style: none;
     color: #c5c1c1;
     font-size: 30px;
@@ -255,35 +255,35 @@ ul li {
     }
 }
 
-ul li:nth-child(1) {
+.title li:nth-child(1) {
     animation-delay: 0
 }
 
-ul li:nth-child(2) {
+.title li:nth-child(2) {
     animation-delay: 0.1s
 }
 
-ul li:nth-child(3) {
+.title li:nth-child(3) {
     animation-delay: 0.2s
 }
 
-ul li:nth-child(4) {
+.title li:nth-child(4) {
     animation-delay: 0.3s
 }
 
-ul li:nth-child(5) {
+.title li:nth-child(5) {
     animation-delay: 0.4s
 }
 
-ul li:nth-child(6) {
+.title li:nth-child(6) {
     animation-delay: 0.5s
 }
 
-ul li:nth-child(7) {
+.title li:nth-child(7) {
     animation-delay: 0.6s
 }
 
-ul li:nth-child(8) {
+.title li:nth-child(8) {
     animation-delay: 0.7s
 }
 
@@ -310,7 +310,7 @@ ul li:nth-child(8) {
     -webkit-backdrop-filter: blur(10px);
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 700px) {
     .authentication-form {
         width: 80vw;
     }
@@ -335,6 +335,13 @@ label {
     width: 45px;
     height: 50px !important;
     border-radius: 10px !important;
+}
+
+@media screen and (max-width:400px) {
+    .num-input {
+        height: 30px !important;
+        width: 30px;
+    }
 }
 
 .ant-input-password {
@@ -380,4 +387,8 @@ input.ant-input:focus {
 
 .ant-tabs-tab-btn {
     color: #ffffff;
+}
+
+.ant-pagination-item-active {
+    background: #00aeff;
 }

@@ -68,7 +68,7 @@ const Appointments = () => {
       <Layout>
          <h1 className="page-title">Appointments</h1>
          <hr />
-         <Table columns={columns} dataSource={appointments} />
+         <Table columns={columns} dataSource={appointments} pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15'] }} />
       </Layout>
    )
 }

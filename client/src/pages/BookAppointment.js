@@ -7,15 +7,15 @@ import dayjs from 'dayjs';
 import moment from 'moment';
 import toast from 'react-hot-toast'
 import axios from 'axios';
-import { Button, Col, DatePicker, Row, TimePicker } from 'antd';
+import { Button, Col, DatePicker, Row, TimePicker, Form, Input } from 'antd';
 
 const BookAppointment = () => {
    const [isAvailable, setIsAvailable] = useState(false);
    const navigate = useNavigate();
    const [date, setDate] = useState();
-   const [time, setTime] = useState();
    const { user } = useSelector((state) => state.user);
    const [doctor, setDoctor] = useState(null);
+   const [time, setTime] = useState();
    const params = useParams()
    const dispatch = useDispatch()
 
@@ -153,7 +153,7 @@ const BookAppointment = () => {
             <div>
                <h1 className="page-title">{doctor.firstName} {doctor.lastName}</h1>
                <hr />
-               <Row gutter={20} align='middle' className='mt-5'>
+               <Row gutter={20} align='middle' className='mt-2'>
                   <Col span={8} sm={24} xs={24} lg={8} >
                      <img src="https://cdn-icons-png.flaticon.com/512/2534/2534679.png" alt="booknow" width='100%' height="300" />
                   </Col>
@@ -166,19 +166,34 @@ const BookAppointment = () => {
                      <p className="doctor-card-text"><b>Experience: </b>{doctor.experience}</p>
                      <p className="doctor-card-text"><b>Location: </b>{doctor.address}</p>
                      <p className="doctor-card-text"><b>Fee Per Visit: </b>{doctor.feePerConsultation}</p>
-                     <div className='d-flex flex-column'>
-                        <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='mt-3 date-time-border'
-                           onChange={(value) => { setDate(moment(value).format("DD-MM-YYYY")); setIsAvailable(false) }} />
-                        <TimePicker format='HH:mm' className='mt-3' disabledTime={disabledDateTime}
-                           onChange={(value) => {
-                              setTime(
-                                 moment(value).format("HH-mm")
-                              );
-                              setIsAvailable(false)
-                           }} />
-                        {!isAvailable && (<Button className='primary-button full-width-button' onClick={checkAvailability}>Check Availabilty</Button>)}
-                        {isAvailable && (<Button className='primary-button full-width-button' onClick={bookNow}>Book Now</Button>)}
-                     </div>
+                     <Form layout='vertical' onFinish={isAvailable ? bookNow : checkAvailability}>
+                        <Form.Item label="Date" className='label' name="date" rules={[
+                           {
+                              required: true,
+                              message: 'Please input your Date!',
+                           },
+                        ]}>
+                           <DatePicker format='DD-MM-YYYY' disabledDate={disabledDate} className='date-time-border w-100'
+                              onChange={(value) => { setDate(moment(value).format("DD-MM-YYYY")); setIsAvailable(false) }} />
+                        </Form.Item>
+                        <Form.Item label="Time" className='label' name="time" rules={[
+                           {
+                              required: true,
+                              message: 'Please input your Time!',
+                           },
+                        ]}>
+                           <TimePicker format='HH:mm' className='mt-3 w-100' disabledTime={disabledDateTime} showNow={false}
+                              onChange={(value) => {
+                                 setTime(
+                                    moment(value).format("HH-mm")
+                                 );
+                                 setIsAvailable(false)
+                              }}
+                           />
+                        </Form.Item>
+                        {!isAvailable && (<Button className='primary-button full-width-button' htmlType='submit'>Check Availabilty</Button>)}
+                        {isAvailable && (<Button className='primary-button full-width-button' htmlType='submit'>Book Now</Button>)}
+                     </Form>
                   </Col>
                </Row>
             </div>

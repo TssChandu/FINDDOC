@@ -62,7 +62,7 @@ function Login() {
   return (
     <div className='authentication'>
       <div className='authentication-form card p-3'>
-        <ul>
+        <ul className="title">
           <li>F</li>
           <li>I</li>
           <li>N</li>
