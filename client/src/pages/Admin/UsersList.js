@@ -62,7 +62,7 @@ const UsersList = () => {
    return (
       <Layout>
          <h1 className="page-title">Users List</h1>
-         <Table columns={columns} dataSource={users} pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15'] }} />
+         <Table columns={columns} rowKey='_id' dataSource={users} pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15'] }} />
       </Layout>
    )
 }

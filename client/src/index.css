@@ -392,3 +392,8 @@ input.ant-input:focus {
 .ant-pagination-item-active {
     background: #00aeff;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}

@@ -47,9 +47,14 @@ const Appointments = () => {
       {
          title: "Date & Time",
          dataIndex: 'createdAt',
-         render: (text, record) => <span>
-            {moment(record.date).format("DD-MM-YYYY")} & {moment(record.time).format("HH:mm")}
-         </span>
+         render: (text, record) => {
+            const timeArray = record.time.split("T")
+            console.log(timeArray)
+            const time = timeArray[1].slice(0, 5)
+            return (<span>
+               {moment(record.date).format("DD-MM-YYYY")} & {time}
+            </span>)
+         }
       },
       {
          title: "Phone",
@@ -68,7 +73,7 @@ const Appointments = () => {
       <Layout>
          <h1 className="page-title">Appointments</h1>
          <hr />
-         <Table columns={columns} dataSource={appointments} pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15'] }} />
+         <Table rowKey='_id' columns={columns} dataSource={appointments} pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15'] }} />
       </Layout>
    )
 }
